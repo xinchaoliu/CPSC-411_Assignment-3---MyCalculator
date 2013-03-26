@@ -18,6 +18,7 @@
 		02921B2A17016CFE004DF215 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02921B2917016CFE004DF215 /* Default-568h@2x.png */; };
 		02921B2D17016CFE004DF215 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921B2B17016CFE004DF215 /* MainStoryboard.storyboard */; };
 		02921B3017016CFE004DF215 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921B2F17016CFE004DF215 /* ViewController.m */; };
+		02921B3817018220004DF215 /* CalculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921B3717018220004DF215 /* CalculatorModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		02921B2C17016CFE004DF215 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		02921B2E17016CFE004DF215 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		02921B2F17016CFE004DF215 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		02921B3617018220004DF215 /* CalculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorModel.h; sourceTree = "<group>"; };
+		02921B3717018220004DF215 /* CalculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				02921B2B17016CFE004DF215 /* MainStoryboard.storyboard */,
 				02921B2E17016CFE004DF215 /* ViewController.h */,
 				02921B2F17016CFE004DF215 /* ViewController.m */,
+				02921B3617018220004DF215 /* CalculatorModel.h */,
+				02921B3717018220004DF215 /* CalculatorModel.m */,
 				02921B1A17016CFE004DF215 /* Supporting Files */,
 			);
 			path = MyCalculator;
@@ -176,6 +181,7 @@
 				02921B2017016CFE004DF215 /* main.m in Sources */,
 				02921B2417016CFE004DF215 /* AppDelegate.m in Sources */,
 				02921B3017016CFE004DF215 /* ViewController.m in Sources */,
+				02921B3817018220004DF215 /* CalculatorModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
