@@ -23,24 +23,32 @@
 @synthesize isEntering;
 
 - (BOOL) isPointExist:(NSString *)screen {
+    // search |.| from screen string, is not found, then isPointExist = YES
     return ([screen rangeOfString:@"."].location != NSNotFound);
 }
 
+// receive numbers: 1,2,3,4,5,6,7,8,9,0
 - (NSString *)numberPressed:(int)tag withCurrentScreen:(NSString *)screen {
+    // get current screen value
     float screenValue = [screen floatValue];
-    if(isEntering == NO) {
-        isEntering = YES;
+    if(isEntering == NO) { // binary operator just pressed, wait for new number
+        isEntering = YES; // set enter status
+        // replace current screen by the entered number
         return [NSString stringWithFormat:@"%d", tag];
-    } else if ([screen length] >= 13) {
-        return screen;
+    } else if ([screen length] >= 13) { // reach the max screen length
+        return screen; // do nothing
     } else if (screenValue == 0 && [self isPointExist:screen] == NO) {
+        // no point exist, replace initial zero to the now entering number
         return [NSString stringWithFormat:@"%d", tag];
     } else
+        // inputing numbers, add numbers at the end of screen
         return [screen stringByAppendingString:
                 [NSString stringWithFormat:@"%d",tag]];
 }
 
+// receive unary operator: square root, dot, plus-minus, all clear
 - (NSString *)unaryPressed:(int)tag withCurrentScreen:(NSString *)screen {
+    // get current screen value
     float screenValue = [screen floatValue];
     switch (tag) {
         case 10: // dot
@@ -83,14 +91,20 @@
     return @"0";
 }
 
+// if pressed binary button: +,-,*,/
 - (NSString *)binaryPressed:(int)tag withCurrentScreen:(NSString *)screen {
+    // get current screen value
     float screenValue = [screen floatValue];
+    // set current screen value as the first operand
     firstOperand = screenValue;
+    // get current operator from button tag
     currentOperator = tag;
+    // operator pressed means finished enter numbers
     isEntering = NO;
     return screen;
 }
 
+// if pressed equal button
 - (NSString *)equalPressedWithCurrentScreen:(NSString *)screen {
     // get current screen value
     float screenValue = [screen floatValue];

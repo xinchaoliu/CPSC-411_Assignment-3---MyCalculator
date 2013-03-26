@@ -28,11 +28,19 @@
 @property (assign) BOOL isEntering;
 // if is entering numbers = YES; if binary operator pressed = NO
 
-// 
 - (BOOL) isPointExist:(NSString *)screen;
+// if there is a point sign exist in current screen then return YES
+
+// logic for all number buttons pressed
 - (NSString *)numberPressed:(int)tag withCurrentScreen:(NSString *)screen;
+
+// logic for all unary operator buttons pressed
 - (NSString *)unaryPressed:(int)tag withCurrentScreen:(NSString *)screen;
+
+// logic for all binary operator buttons pressed
 - (NSString *)binaryPressed:(int)tag withCurrentScreen:(NSString *)screen;
+
+// logic for equal button pressed
 - (NSString *)equalPressedWithCurrentScreen:(NSString *)screen;
 
 @end
