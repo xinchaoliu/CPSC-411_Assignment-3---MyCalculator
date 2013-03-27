@@ -53,13 +53,15 @@
     switch (tag) {
         case 10: // dot
         {
+            // if no point exist, add a point at the end
             if ([self isPointExist:screen] == NO) {
                 return [screen stringByAppendingString:@"."];
             } else return screen;
             break;
         }
         case 11: // plus-minus 
-        {            
+        {
+            // screen value times -1 to change the plus-minus sign
             if (screenValue == 0) {
                 return screen;
             } else {
@@ -71,6 +73,7 @@
         }
         case 12: // root
         {
+            // only perform sqrtf() to value larger than 0
             if (screenValue >= 0) {
             screenValue = sqrtf(screenValue);
             NSNumber *screenNumber = [NSNumber numberWithFloat:screenValue];
@@ -80,6 +83,7 @@
         }  
         case 15: // all clear
         {
+            // set all operands and operator to 0 to clear all
             firstOperand = 0;
             secondOperand = 0;
             currentOperator = 0;
@@ -93,6 +97,12 @@
 
 // if pressed binary button: +,-,*,/
 - (NSString *)binaryPressed:(int)tag withCurrentScreen:(NSString *)screen {
+    //Two situation: 1. Just finish input number: isEntering = YES
+    //               2. Just pressed |=|: isEntering = NO
+    // first perform one time equalPressed method
+    if (isEntering) {
+    screen = [self equalPressedWithCurrentScreen:screen];
+    }
     // get current screen value
     float screenValue = [screen floatValue];
     // set current screen value as the first operand
@@ -108,7 +118,8 @@
 - (NSString *)equalPressedWithCurrentScreen:(NSString *)screen {
     // get current screen value
     float screenValue = [screen floatValue];
-    
+    // stop entering
+    isEntering = NO;
     // compute result base on current operator
     switch (currentOperator) {
         case 21: // multiply
